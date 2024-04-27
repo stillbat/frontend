@@ -39,9 +39,9 @@ export default function Home() {
           low: string;
           close: string;
           volume: string;
-          
         }) => (
           <div
+            key={item.datetime}
             style={{
               backgroundColor: "white",
               height: "200px",
