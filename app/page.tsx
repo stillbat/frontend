@@ -6,7 +6,7 @@ export default function Home() {
   const router = useRouter();
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:1000/stocks", {
+    fetch("https://backend-gej8.onrender.com/stocks", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     }).then(async (res) => {
       if (res.status == 401) {

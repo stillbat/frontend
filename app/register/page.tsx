@@ -11,7 +11,7 @@ export default function Register() {
     const handlePasswordChange: ChangeEventHandler<HTMLInputElement> = (e) => { setPassword(e.target.value) };
     const handleSignUp = async () => {
         try {
-            const res = await fetch("http://localhost:1000/register", {
+            const res = await fetch("https://backend-gej8.onrender.com/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -19,7 +19,7 @@ export default function Login() {
 
     const handleLogin = async () => {
         try {
-            const res = await fetch("http://localhost:1000/login", {
+            const res = await fetch("https://backend-gej8.onrender.com/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
