@@ -48,7 +48,6 @@ export default function Home() {
               width: "300px",
             }}
           >
-            <p>datetime:{item.datetime}</p>
             <p>date: {item.datetime.split(" ")[0]}</p>
             <p>time: {item.datetime.split(" ")[1]}</p>
             <p>open:{item.open}</p>
