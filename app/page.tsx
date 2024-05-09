@@ -155,12 +155,12 @@ export default function Home() {
           }}
         >
           <p>
-            "https://api.twelvedata.com/time_series?apikey=110574cb274041938b5bde5630eeb858&interval=
+            https://api.twelvedata.com/time_series?apikey=110574cb274041938b5bde5630eeb858&interval=
             {interval}min&symbol=
             {ticker}&dp={decimal}
             &outputsize={outputsize}
             &type=stock&dp=2&timezone=exchange&start_date={startdate}
-            {" "}{starttime}&end_date=2024-04-17 15:59:00&format=JSON"
+            {" "}{starttime}&end_date=2024-04-17 15:59:00&format=JSON
           </p>
           <p>390 length 1min chart</p>
           <input
