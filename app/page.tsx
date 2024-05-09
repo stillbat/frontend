@@ -82,17 +82,22 @@ export default function Home() {
   function intervalhandle(event: any) {
     setInterval(event.target.value);
   }
-  const [startdate, setDate] = useState();
+  const [startdate, setStartdate] = useState();
   function startdatehandle(event: any) {
-    setDate(event.target.value);
+    setStartdate(event.target.value);
   }
   const [starttime, setStarttime] = useState();
   function starttimehandle(event: any) {
     setStarttime(event.target.value);
   }
-
-
-
+  const [enddate, setEnddate] = useState();
+  function enddatehandle(event: any) {
+    setEnddate(event.target.value);
+  }
+  const [endtime, setEndtime] = useState();
+  function endtimehandle(event: any) {
+    setEndtime(event.target.value);
+  }
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -159,43 +164,72 @@ export default function Home() {
             {interval}min&symbol=
             {ticker}&dp={decimal}
             &outputsize={outputsize}
-            &type=stock&dp=2&timezone=exchange&start_date={startdate}
-            {" "}{starttime}&end_date=2024-04-17 15:59:00&format=JSON
+            &type=stock&dp=2&timezone=exchange&start_date={startdate}{" "}
+            {starttime}&end_date={enddate} {endtime}&format=JSON
           </p>
-          <p>390 length 1min chart</p>
-          <input
-            placeholder="stock name"
-            value={ticker}
-            onChange={tickerhandle}
-          ></input>
-          <input
-            placeholder="decimal places"
-            value={decimal}
-            onChange={decimalhandle}
-          ></input>
-          <input
-            placeholder="output size"
-            value={outputsize}
-            onChange={outputhandle}
-          ></input>
-          <input
-            placeholder="interval"
-            value={interval}
-            onChange={intervalhandle}
-          ></input>
-          <input
-            type="date"
-            placeholder="startdate"
-            value={startdate}
-            onChange={startdatehandle}
-          ></input>
-          <input
-            type="time" step="1"
-            placeholder="starttime"
-            value={starttime}
-            onChange={starttimehandle}
-          ></input>
-          
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+            }}
+          >
+            <p>type stock name</p>
+            <input
+              placeholder="stock name"
+              value={ticker}
+              onChange={tickerhandle}
+            ></input>
+            <p>type 2 or 4</p>
+            <input
+              placeholder="decimal places"
+              value={decimal}
+              onChange={decimalhandle}
+            ></input>
+            <p>outputsize from 12 to 5000 but recomended size is 390</p>
+            <input
+              placeholder="output size"
+              value={outputsize}
+              onChange={outputhandle}
+            ></input>
+            <p>type 1, 5, or 15</p>
+            <input
+              placeholder="interval"
+              value={interval}
+              onChange={intervalhandle}
+            ></input>
+            <p>start date</p>
+            <input
+              type="date"
+              placeholder="startdate"
+              value={startdate}
+              onChange={startdatehandle}
+            ></input>
+            <p>start time</p>
+            <input
+              type="time"
+              step="1"
+              placeholder="starttime"
+              value={starttime}
+              onChange={starttimehandle}
+            ></input>
+
+            <p>end date</p>
+            <input
+              type="date"
+              placeholder="enddate"
+              value={enddate}
+              onChange={enddatehandle}
+            ></input>
+            <p>end time</p>
+            <input
+              type="time"
+              step="1"
+              placeholder="endtime"
+              value={endtime}
+              onChange={endtimehandle}
+            ></input>
+          </div>
         </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
