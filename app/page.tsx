@@ -70,10 +70,6 @@ export default function Home() {
   function tickerhandle(event: any) {
     setTicker(event.target.value);
   }
-  const [decimal, setDecimal] = useState();
-  function decimalhandle(event: any) {
-    setDecimal(event.target.value);
-  }
   const [outputsize, setOutputsize] = useState();
   function outputhandle(event: any) {
     setOutputsize(event.target.value);
@@ -98,7 +94,6 @@ export default function Home() {
   function endtimehandle(event: any) {
     setEndtime(event.target.value);
   }
-
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -114,6 +109,7 @@ export default function Home() {
       </Box>
       <CustomTabPanel value={value} index={0}>
         <div>
+          <p>symbol : {ticker}</p>
           <div
             style={{
               display: "flex",
@@ -162,8 +158,7 @@ export default function Home() {
           <p>
             https://api.twelvedata.com/time_series?apikey=110574cb274041938b5bde5630eeb858&interval=
             {interval}min&symbol=
-            {ticker}&dp={decimal}
-            &outputsize={outputsize}
+            {ticker}&dp=2 &outputsize={outputsize}
             &type=stock&dp=2&timezone=exchange&start_date={startdate}{" "}
             {starttime}&end_date={enddate} {endtime}&format=JSON
           </p>
@@ -179,12 +174,6 @@ export default function Home() {
               placeholder="stock name"
               value={ticker}
               onChange={tickerhandle}
-            ></input>
-            <p>type 2 or 4</p>
-            <input
-              placeholder="decimal places"
-              value={decimal}
-              onChange={decimalhandle}
             ></input>
             <p>outputsize from 12 to 5000 but recomended size is 390</p>
             <input
@@ -213,7 +202,6 @@ export default function Home() {
               value={starttime}
               onChange={starttimehandle}
             ></input>
-
             <p>end date</p>
             <input
               type="date"
@@ -229,6 +217,7 @@ export default function Home() {
               value={endtime}
               onChange={endtimehandle}
             ></input>
+            <button>test request</button>
           </div>
         </div>
       </CustomTabPanel>
